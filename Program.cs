@@ -65,7 +65,8 @@ namespace JuegoPorTurnos
                             Console.WriteLine("Número inválido (duh) . Intenta de nuevo :v.");
                         }
                     }
-                    // Ataque enemigo
+                    
+
                     List<Enemigo> enemigosVivosList = enemigos.FindAll(e => e.estaVivo());
                     if (enemigosVivosList.Count > 0)
                     {

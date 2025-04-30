@@ -28,8 +28,7 @@ namespace JuegoPorTurnos
         {
             return danio;
         }
-        //public int Vida() => vida;
-        //public int Danio() => danio;
+        
 
     }
 }
