@@ -22,7 +22,7 @@ namespace JuegoPorTurnos
 
                 while (true)
                 {
-                    Console.WriteLine($" Turno {turno} ");
+                    Console.WriteLine($"Turno {turno}");
                     Console.WriteLine($"Tu vida: {jugador.vida}");
 
                     List<int> enemigosVivos = new List<int>();
@@ -36,19 +36,19 @@ namespace JuegoPorTurnos
 
                     if (enemigosVivos.Count == 0)
                     {
-                        Console.WriteLine("¡Has derrotado a todos los enemigos! ¡Victoria!");
+                        Console.WriteLine("¡Has vencido a todos los enemigos! ¡Victoria!");
                         break;
                     }
 
                     Console.WriteLine("Enemigos vivos:");
                     foreach (int ene in enemigosVivos)
                     {
-                        Console.WriteLine($"  {ene}. Enemigo {ene + 1} - Vida: {enemigos[ene].vida}");
+                        Console.WriteLine($"{ene}. Enemigo {ene + 1} - Vida: {enemigos[ene].vida}");
                     }
                     int objetivo;
                     while (true)
                     {
-                        Console.Write("¿A qué enemigo quieres atacar? (ingresa el número): ");
+                        Console.Write("¿A quién quieres atacar?: ");
                         if (int.TryParse(Console.ReadLine(), out objetivo) && enemigosVivos.Contains(objetivo))
                         {
                             enemigos[objetivo].recibirDanio(jugador.causarDanio());
@@ -62,7 +62,7 @@ namespace JuegoPorTurnos
                         }
                         else
                         {
-                            Console.WriteLine("Número inválido o enemigo ya derrotado. Intenta de nuevo.");
+                            Console.WriteLine("Número inválido (duh) . Intenta de nuevo :v.");
                         }
                     }
                     // Ataque enemigo
@@ -76,7 +76,7 @@ namespace JuegoPorTurnos
 
                         if (jugador.vida <= 0)
                         {
-                            Console.WriteLine("¡Has sido derrotado! Fin del juego.");
+                            Console.WriteLine("¡Has sido derrotado :( ! Fin del juego (eres muy malo :v).");
                             break;
                         }
                     }
@@ -84,7 +84,7 @@ namespace JuegoPorTurnos
                     turno++;
                 }
 
-                Console.WriteLine("¿Quieres jugar otra vez? (s/n): ");
+                Console.WriteLine("¿Quieres intentarlo otra vez? (s/n): ");
                 string respuesta = Console.ReadLine().ToLower();
                 jugarDeNuevo = (respuesta == "s");
             }
@@ -100,22 +100,22 @@ namespace JuegoPorTurnos
 
             while (true)
             {
-                Console.WriteLine("Introduce la vida del jugador (1-100): ");
+                Console.WriteLine("Ponte la vida del quieras (1-100): ");
                 if (int.TryParse(Console.ReadLine(), out vida) && vida > 0 && vida <= 100)
                 {
                     break;
                 }
-                Console.WriteLine("Valor inválido. Debe estar entre 1 y 100.");
+                Console.WriteLine("Número equivocado. Debe estar entre 1 y 100.");
             }
 
             while (true)
             {
-                Console.WriteLine("Introduce el daño del jugador (1-100): ");
+                Console.WriteLine("Introduce tu daño (1-100): ");
                 if (int.TryParse(Console.ReadLine(), out danio) && danio > 0 && danio <= 100)
                 {
                     break;
                 }
-                Console.WriteLine("Valor inválido. Debe estar entre 1 y 100.");
+                Console.WriteLine("Número equivocado. Debe estar entre 1 y 100.");
             }
 
             return new Jugador(vida, danio);
@@ -128,7 +128,7 @@ namespace JuegoPorTurnos
 
             while (true)
             {
-                Console.WriteLine("¿Cuántos enemigos habrá? ");
+                Console.WriteLine("¿Cuántos enemigos podrás vencer? ");
                 if (int.TryParse(Console.ReadLine(), out cantidad) && cantidad > 0)
                 {
                     break;
@@ -138,7 +138,7 @@ namespace JuegoPorTurnos
 
             for (int i = 0; i < cantidad; i++)
             {
-                Console.WriteLine($"\nEnemigo {i + 1}:");
+                Console.WriteLine($"Enemigo {i + 1}:");
 
                 int vida;
                 while (true)
@@ -148,7 +148,7 @@ namespace JuegoPorTurnos
                     {
                         break;
                     }
-                    Console.WriteLine("  Valor inválido. Debe estar entre 1 y 100.");
+                    Console.WriteLine("  Número equivocado. Debe estar entre 1 y 100.");
                 }
 
                 int daño;
@@ -159,7 +159,7 @@ namespace JuegoPorTurnos
                     {
                         break;
                     }
-                    Console.WriteLine("  Valor inválido. Debe estar entre 1 y 100.");
+                    Console.WriteLine("  Número equivocado. Debe estar entre 1 y 100.");
                 }
 
                 enemigos.Add(new Enemigo(vida, daño));
